@@ -1,0 +1,17 @@
+package hospital;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class DBConnection {
+    private static final String URL = "jdbc:mysql://localhost:3306/hospital_db";
+    private static final String USER = "root";
+    private static final String PASSWORD = "Swapna@123";
+
+    public static Connection getConnection() throws Exception {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        System.out.println("Connected");
+        return DriverManager.getConnection(URL, USER, PASSWORD);
+       
+    }
+}

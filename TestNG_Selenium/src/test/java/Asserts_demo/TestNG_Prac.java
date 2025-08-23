@@ -1,0 +1,74 @@
+package Asserts_demo;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+public class TestNG_Prac {
+	WebDriver driver;
+	@BeforeTest
+	  public void beforeTest() throws InterruptedException {
+		  driver=new ChromeDriver();
+		  driver.get("https://www.ebay.com");
+		  driver.manage().window().maximize();
+		  Thread.sleep(2000);
+	}
+	
+	  @Test(priority=1)
+	  public void login() throws InterruptedException {
+		  WebElement login=driver.findElement(By.linkText("Sign in"));
+		  login.click();
+		 Thread.sleep(8000);
+		  
+		  WebElement sing=driver.findElement(By.id("userid"));
+		  sing.sendKeys("swapnaankireddy92@gmail.com");
+		  Thread.sleep(5000);
+		  
+		  WebElement cont=driver.findElement(By.id("signin-continue-btn"));
+		  cont.click();
+		  Thread.sleep(5000);
+		  
+		  WebElement password=driver.findElement(By.id("pass"));
+		  password.sendKeys("s1234567s");
+		  Thread.sleep(3000);
+		  
+		  WebElement signin=driver.findElement(By.id("sgnBt"));
+		  signin.click();
+		  Thread.sleep(2000);
+		  
+	  }
+	  @Test (priority=2,dependsOnMethods =  {"login"})
+	  public void search() throws InterruptedException {
+		  
+		  String searchitem[]= {"watch","phone","book"};
+		  for(String item:searchitem) {
+			  WebElement search=driver.findElement(By.id("gh-ac"));
+			  search.clear();
+			  search.sendKeys(item);
+			  search.sendKeys(Keys.ENTER);
+			  Thread.sleep(1000);
+		  }
+	  }
+	  
+     @Test (priority=3,dependsOnMethods = {"search"},enabled=false)
+	  
+	  public void logout() throws InterruptedException {
+    	 Actions actions=new Actions(driver);
+    	 
+	      WebElement ele=driver.findElement(By.xpath("//*[@id=\"gh\"]/nav/div[1]/span[1]/div/button/span/span"));
+	      actions.moveToElement(ele).perform();
+	      
+	      Thread.sleep(1000);
+	      
+	      driver.findElement(By.xpath("//*[@id=\"s0-1-4-9-3[0]-0-9-dialog\"]/div/div/ul/li[3]/a")).click();
+	      
+		  
+	  }
+}

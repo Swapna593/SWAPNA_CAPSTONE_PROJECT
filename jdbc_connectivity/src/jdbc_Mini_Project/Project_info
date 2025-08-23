@@ -1,0 +1,49 @@
+JDBC-(JAVA-MYSQL-Mini project) 
+
+Create table Student 
+
+Insert records 
+
+Print table 
+
+Update table 
+
+Find out highest percentage students 
+
+Arrange records in ascending order 
+
+Find all the student which belong to same city 
+
+Add new column  
+
+Modify column datatype 
+
+Change the name of table 
+
+Delete column 
+
+Delete single row 
+
+Delete all the records from table without affecting table attributes 
+
+Delete entire table 
+
+ 
+
+Join two tables student and an institute and print only common record from both the table 
+
+Join two tables student and an institute and print only left side table record 
+
+Join two tables student and an institute and print only right side table record 
+
+Join two tables student and an institute and print all the records from both the tables 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 

@@ -1,0 +1,10 @@
+<suite name="LoginSuite" parallel="classes" thread-count="1">
+    <test name="LoginTest">
+        <parameter name="username1"  value="username"/>
+        <parameter name="password1"  value="password"/>
+        
+        <classes>
+            <class name="Asserts_demo.Parameter_Test"/>
+        </classes>
+    </test>
+</suite>
